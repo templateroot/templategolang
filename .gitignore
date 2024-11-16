@@ -1,0 +1,4 @@
+go.mod
+go.sum
+template1
+crash*.log
