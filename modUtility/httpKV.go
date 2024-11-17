@@ -8,7 +8,6 @@ import (
 
 const C_Key_DBListUrl = "MAINKVURL"
 const C_Key_DBListToken = "MAINKVTOKEN"
-const C_Key_HttpPort = "HTTPPORT"
 const C_Key_MessageUrl = "MESSAGEURL"
 const C_Key_MessageToken = "MESSAGETOKEN"
 

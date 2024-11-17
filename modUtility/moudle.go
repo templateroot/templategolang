@@ -23,15 +23,11 @@ func Utility_Initialize() error {
 	if err != nil {
 		return err
 	}
-
-	if len(G_AppToken) < 3 {
-		LogError("apptoken empty")
-		return errors.New("apptoken empty")
-	}
+	utility_checkInstID()
 
 	err = httpkv_Initialize()
 	if err != nil {
-		LogError("http initialize error")
+		LogError("http kv utility initialize error")
 		return err
 	}
 
@@ -41,21 +37,16 @@ func Utility_Initialize() error {
 }
 
 func Utility_writeStartLog() error {
-	instid := utility_checkInstID() // read APPTOKEN which used in libgatlingconfig
 	strTimeNow := time.Now().Format("2006-01-02 15:04:05")
 
-	strLog := fmt.Sprintf("[%s-%s] start, local time: %s", C_APPID, instid, strTimeNow)
+	strLog := fmt.Sprintf("[%s-%s] start, local time: %s", C_APPID, G_AppToken, strTimeNow)
 
 	return LogInfo(strLog)
 }
 
-func utility_checkInstID() string {
-	instid := Config_Read(C_Key_AppToken) // this key defined in libgatlingconfig
-	if instid != "" {
-		return instid
+func utility_checkInstID() {
+	G_AppToken = Config_Read(C_Key_AppToken) // this key defined in libgatlingconfig
+	if G_AppToken == "" {
+		G_AppToken = strconv.Itoa(int(time.Now().Unix()))
 	}
-	instid = strconv.Itoa(int(time.Now().Unix()))
-	G_AppToken = instid
-
-	return instid
 }

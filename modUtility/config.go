@@ -15,6 +15,7 @@ import (
 
 const C_APPID = "WJGOTEMPLATE1"
 const C_Key_AppToken = "APPTOKEN" /// define in library config too..;
+const C_Key_HttpPort = "HTTPPORT"
 
 const C_Key_LogUrl = "LOGURL"
 const C_Key_LogToken = "LOGTOKEN"
@@ -33,7 +34,7 @@ func config_initialize() error {
 		return err
 	}
 
-	strTmp := Config_Read("HTTPPORT")
+	strTmp := Config_Read(C_Key_HttpPort)
 	if strTmp != "" {
 		iRet, err := strconv.Atoi(strTmp)
 		if err == nil && iRet > 100 && iRet < 65535 {
