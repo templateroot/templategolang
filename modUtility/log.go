@@ -7,7 +7,7 @@ import (
 )
 
 func log_initialize(url, token string) error {
-	logInst, err := libgatlinglog.GatlingLogLib_Initialize(url, token, C_Key_APPID)
+	logInst, err := libgatlinglog.GatlingLogLib_Initialize(url, token, C_APPID)
 
 	if err != nil {
 		fmt.Println("log init error: ", err)

@@ -1,4 +1,5 @@
 go.mod
 go.sum
-template1
+wjgotemplate1
+bin/wjgotemplate1
 crash*.log

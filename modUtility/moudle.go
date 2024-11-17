@@ -8,6 +8,7 @@ import (
 )
 
 func Utility_Initialize() error {
+	catchCrash()
 	err := config_initialize()
 	if err != nil {
 		return err
@@ -28,6 +29,12 @@ func Utility_Initialize() error {
 		return errors.New("apptoken empty")
 	}
 
+	err = httpkv_Initialize()
+	if err != nil {
+		LogError("http initialize error")
+		return err
+	}
+
 	UpdateTimeNew()
 
 	return nil
@@ -37,7 +44,7 @@ func Utility_writeStartLog() error {
 	instid := utility_checkInstID() // read APPTOKEN which used in libgatlingconfig
 	strTimeNow := time.Now().Format("2006-01-02 15:04:05")
 
-	strLog := fmt.Sprintf("[%s-%s] start, local time: %s", C_Key_APPID, instid, strTimeNow)
+	strLog := fmt.Sprintf("[%s-%s] start, local time: %s", C_APPID, instid, strTimeNow)
 
 	return LogInfo(strLog)
 }

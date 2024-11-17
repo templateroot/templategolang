@@ -13,7 +13,7 @@ import (
 	"github.com/gatlinglab/libgatlingconfig"
 )
 
-const C_Key_APPID = "TEMPLATE1"
+const C_APPID = "WJGOTEMPLATE1"
 const C_Key_AppToken = "APPTOKEN" /// define in library config too..;
 
 const C_Key_LogUrl = "LOGURL"
@@ -28,7 +28,7 @@ func GetSystemID() string {
 }
 
 func config_initialize() error {
-	err := libgatlingconfig.GetSingleGatlingConfig().Initialize(C_Key_APPID)
+	err := libgatlingconfig.GetSingleGatlingConfig().Initialize(C_APPID)
 	if err != nil {
 		return err
 	}

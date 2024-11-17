@@ -2,16 +2,12 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"runtime/debug"
-	"template1/modHttpServer"
-	"template1/modUtility"
-	"time"
+	"wjgotemplate1/modHttpServer"
+	"wjgotemplate1/modUtility"
 )
 
 func main() {
 
-	catchCrash()
 	err := modUtility.Utility_Initialize()
 	if err != nil {
 		fmt.Println("utility initialize failed: ", err)
@@ -32,12 +28,4 @@ func main() {
 		return
 	}
 
-}
-
-func catchCrash() {
-	f, err := os.Create(time.Now().Format("crash20060102150405.log"))
-	if err != nil {
-		panic(err)
-	}
-	debug.SetCrashOutput(f, debug.CrashOptions{})
 }

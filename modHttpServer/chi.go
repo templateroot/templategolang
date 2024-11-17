@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"template1/modUtility"
+	"wjgotemplate1/modUtility"
 
 	"github.com/go-chi/chi/v5"
 )
