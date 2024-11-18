@@ -5,7 +5,7 @@ sudo cp /etc/ssl/certs/ca-certificates.crt ./
 sudo chmod 666 ca-certificates.crt
 cp ../WJGOTEMPLATE1.cfg ./
 docker build --tag template1 .
-#docker build --tag t99bot/wjtgmemberdetect .
+#docker build --tag dockerid/template1 .
 rm ca-certificates.crt
 rm wjgotemplate1 WJGOTEMPLATE1.cfg
 
