@@ -41,5 +41,5 @@ func (pInst *CChi) start() error {
 }
 
 func handlerHomepage(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("welcome message"))
+	w.Write([]byte("hello " + modUtility.C_APPID))
 }
