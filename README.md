@@ -25,7 +25,7 @@ if err != nil {
 	return
 }
 
-`if !modUtility.EnsureSingleInstance() {
+if !modUtility.EnsureSingleInstance() {
 	return
 }
 ```
