@@ -1,6 +1,10 @@
 # templategolang
 
 
+----
+
+
+
 2025.0314:
   add 
 ```GO
